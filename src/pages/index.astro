@@ -1,17 +1,30 @@
 ---
+import "../styles/global.css";
 
+import { Image } from "astro:assets";
+import roger from "../assets/images/roger.png";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle="Roger Barahona">
+  <section id="about-me" class="w-full px-50 pt-15 flex justify-between">
+    <article class="bg-violet-600 w-1/2">
+      <h4 class="text-2xl">Hola, soy</h4>
+      <h1 class="text-7xl font-bold">Roger Barahona</h1>
+      <h3 class="text-3xl">Desarrollador web</h3>
+
+      <p class="text-lg">
+        Me especializo en el desarrollo de aplicaciones web modernas, <br /> escalables
+        y eficientes utilizando tecnologías <br /> como <strong>Angular</strong
+        >, <strong>TypeScript</strong> y
+        <strong>NodeJS</strong>.
+      </p>
+    </article>
+
+    <article class="flex flex-col items-center bg-red-500 w-1/2">
+      <Image class="w-75 h-75 rounded-full" src={roger} alt="roger" />
+      <!-- <Image class="logo" src={Logo} alt="Logo" /> -->
+    </article>
+  </section>
+</BaseLayout>

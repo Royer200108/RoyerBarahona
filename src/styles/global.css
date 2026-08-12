@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+body {
+  background-color: rgb(0, 14, 14);
+  /*font-family: 'Reddit Sans Variable', sans-serif;*/
+  font-family: "Reddit Sans Variable", sans-serif;
+  
+  background-image: radial-gradient(circle, rgb(4, 23, 23) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.bg-components {
+  background-color: rgb(34, 154, 136);
+  height: 75px;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  margin: 10px 0px;
+}
+
+/*----------------------------------------*/
+/*-NAVEGACION-----------------------------*/
+/*----------------------------------------*/
+.navigation {
+  box-shadow: 0 0.2px 0 0 rgb(34, 154, 136);
+}
+
+.navigation li {
+  
+  height: 100%;
+}
+
+.navigation li a {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  
+  transition: all 0.3s ease;
+}
+
+.navigation li a:hover {
+  color: rgb(34, 154, 136);
+  box-shadow: 0 8px 6px -6px rgba(34, 154, 136);
+}
+
+.active {
+  color: rgb(34, 154, 136);
+  transition: 0.3s;
+  box-shadow: 0 8px 6px -6px rgba(34, 154, 136);
+}
+
+/*----------------------------------------*/
+/*-CONTENIDOS-----------------------------*/
+/*----------------------------------------*/
+
+h1 {
+  color: rgb(255, 255, 255);
+  padding: 15px 0px;
+}
+
+h3, h4 {
+  color: rgb(34, 154, 136);
+}
+
+p { 
+  color: rgb(255, 255, 255);
+}
+
+strong {
+  color: rgb(34, 154, 136);
+}
+
+/*----------------------------------------*/
+/*-FOOTER-----------------------------*/
+/*----------------------------------------*/
+footer {
+  height: 117px;
+}
