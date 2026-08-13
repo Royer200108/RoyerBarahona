@@ -46,7 +46,7 @@ body {
 
 .navigation li a:hover {
   color: rgb(34, 154, 136);
-  box-shadow: 0 8px 6px -6px rgba(34, 154, 136);
+  box-shadow: 0 8px 6px -7px rgba(34, 154, 136);
 }
 
 .active {
@@ -73,12 +73,49 @@ p {
   color: rgb(255, 255, 255);
 }
 
+.sub-titulo {
+  color: white !important;
+  display: inline-block;
+  
+  border-bottom: 1.5px solid rgba(24, 154, 136, 0.5);
+  border-image: linear-gradient(to right, rgb(24, 154, 136), rgb(156, 248, 237)) 1;
+}
+
 .parrafo {
   padding-top: 20px;
 }
 
 strong {
   color: rgb(34, 154, 136);
+}
+
+.nombre {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+
+  width: 0;
+  border-right: 3px solid white;
+
+  animation:
+    typing-name 3s steps(15) forwards,
+    blink-name 0.6s step-end infinite alternate;
+}
+
+@keyframes typing-name {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 15ch;
+  }
+}
+
+@keyframes blink-name {
+  50% {
+    border-color: transparent;
+  }
 }
 
 /*----------------------------------------*/
@@ -128,6 +165,7 @@ strong {
 .comando {
   color: rgb(77, 154, 85);
 }
+
 .comando p {
   color: rgb(77, 154, 85);
   display: block;
@@ -138,25 +176,52 @@ strong {
   border-right: 3px solid white;
 
   animation:
-    typing 1.5s steps(6) forwards,
+    typing 1.5s steps(7) forwards,
     blink 0.5s step-end infinite alternate,
     hide-cursor 0s forwards 1.5s;
 }
 
+.command {
+  opacity: 0;
+  animation: 
+    aparecer 0.1s ease forwards;
+}
+
+.command {
+  animation-delay: 2.2s;
+} 
+
+/* Segundo comando */
+.comando-2 p {
+  animation-delay: 2.3s, 2.3s, 4.3s;
+}
+
+/* Respuestas */
 .respuesta {
   color: rgb(165, 169, 171);
   opacity: 0;
   animation: aparecer 0.5s ease forwards;
 }
 
-.respuesta:nth-child(2) {
+.respuesta-1 {
   animation-delay: 1.7s;
 }
 
-.respuesta:nth-child(3) {
+.respuesta-2 {
   animation-delay: 2.2s;
 }
 
+.respuesta-3 {
+  animation-delay: 4.2s;
+}
+
+
+.disponible {
+  animation:
+    aparecer 1s ease infinite alternate; 
+}
+
+/* Escribir */
 @keyframes typing {
   from {
     width: 0;
@@ -167,18 +232,21 @@ strong {
   }
 }
 
+/* Cursor */
 @keyframes blink {
   50% {
     border-color: transparent;
   }
 }
 
+/* Ocultar cursor */
 @keyframes hide-cursor {
   to {
     border-right-color: transparent;
   }
 }
 
+/* Aparición */
 @keyframes aparecer {
   from {
     opacity: 0;
@@ -199,6 +267,12 @@ strong {
 .btn-default:hover {
   cursor: pointer;
   box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+
+  transform: translateY(-3px);
+}
+
+.btn-default:active {
+  transform: translateY(3px);
 }
 
 .btn-lleno {

@@ -1,0 +1,272 @@
+---
+import { Image } from "astro:assets";
+import roger from "../assets/images/roger.png";
+
+const icons = Object.entries(
+  import.meta.glob("../assets/svg/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+
+icons.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+//console.log(icons);
+
+import Button from "../components/Button.astro";
+---
+
+<section
+  id="about-me"
+  class="w-full px-50 flex justify-between pt-30
+  max-2xl:px-5
+  max-lg:flex-col max-lg:items-center max-lg:px-5"
+>
+  <article class="w-1/2 pt-10
+    
+    max-lg:w-full mx-lg:mb-10 max-lg:order-2">
+    <div>
+      <h4 class="text-1xl font-bold
+      max-lg:text-1xl">Hola, soy</h4>
+      <h1
+        class="nombre font-bold text-6xl
+      max-lg:text-4xl 
+      max-sm:text-wrap"
+      >
+        Roger Barahona
+      </h1>
+      <h3 class="font-bold text-2xl
+      max-lg:text-2xl">Desarrollador web</h3>
+
+      <p class="parrafo text-1xl">
+        Me especializo en el desarrollo de aplicaciones web modernas, <br /> escalables
+        y eficientes utilizando tecnologías <br /> como <strong>Angular</strong
+        >, <strong>TypeScript</strong> y <strong>NodeJS</strong>.
+      </p>
+    </div>
+
+    <div class="flex py-10 gap-5
+    
+    max-sm:flex-col">
+      <Button className="btn-lleno">
+        <span class="flex items-center gap-2
+          max-lg:justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-rocket"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3"
+            ></path><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3"></path><path
+              d="M14 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg
+          >
+
+          Ver Proyectos
+        </span>
+      </Button>
+
+      <Button className="btn-vacio">
+        <span class="flex items-center gap-2
+          max-lg:justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-mail"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"
+            ></path><path d="M3 7l9 6l9 -6"></path></svg
+          >
+
+          Contáctame
+        </span>
+      </Button>
+    </div>
+
+    <div>
+      <h3 class="sub-titulo text-2xl font-bold mb-2">
+        <span class="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="rgb(34, 154, 136)"
+            class="icon icon-tabler icons-tabler-filled icon-tabler-circle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z"
+            ></path>
+          </svg>
+
+          &nbspSobre Mí
+        </span>
+      </h3>
+
+      <p>
+        Soy un ingeniero en sistemas computacionales Junior; apasionado por la
+        programación, el desarrollo de aplicaciones web y el análisis de bases
+        de datos. Considero que tengo un ojo crítico para los pequeños detalles
+        que son decisivos para separar un buen producto de uno excepcional.
+        Disfruto los desafíos, busco su resolución de combinando mis
+        conocimientos de código limpio e ingeniería.
+      </p>
+      <br />
+      <p>
+        Mi objetivo siempre es aplicar mis conocimientos para conseguir
+        soluciones tecnológicas eficientes a medida que generen valor y mejoren
+        la experiencia de los usuarios.
+      </p>
+      <br />
+      <p>
+        En mi tiempo libre normalmente me encuentro cuidando y apreciando mis
+        acuarios, pasando el tiempo en familia o disfrutando de una buena serie.
+      </p>
+    </div>
+  </article>
+
+  <article
+    class="flex flex-col items-center w-1/2 pt-30
+    
+    max-lg:order-1 max-lg:pt-5"
+  >
+    <Image class="imagen rounded-full" src={roger} alt="roger" />
+
+    <div
+      class="w-full flex flex-col items-center mt-5 block
+        max-lg:hidden"
+    >
+      <div class="consola w-2/3 flex gap-2 p-3 rounded-t-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="rgb(236, 63, 62)"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-circle"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z"
+          ></path>
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="rgb(245, 186, 36)"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-circle"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z"
+          ></path>
+        </svg>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="rgb(40, 175, 54)"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-circle"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z"
+          ></path>
+        </svg>
+      </div>
+      <div class="consola w-2/3 flex gap-2 rounded-b-lg">
+        <div class="flex flex-col p-2">
+          <!-- COMANDO 1 -->
+          <div class="comando comando-1 flex flex-row">
+            <span>$&nbsp;</span>
+            <p>whoami</p>
+          </div>
+
+          <span class="respuesta respuesta-1">> Roger Barahona</span>
+          <span class="respuesta respuesta-2">> Desarrollador web</span>
+
+          <br />
+
+          <!-- COMANDO 2 -->
+          <div class="comando comando-2 command flex flex-row">
+            <span>$&nbsp;</span>
+            <p>status</p>
+          </div>
+
+          <span class="respuesta respuesta-3 flex">
+            >&nbsp<p class="disponible">🟢</p>&nbspDisponible para nuevos
+            proyectos
+          </span>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- <h4 class="pt-5">Tecnologías principales:</h4>
+
+<div class="slider" id="slider">
+  <div class="flex" id="slideTrack">
+    {
+      [...icons, ...icons].map((icon) => (
+        <div class="slide flex justify-center items-center gap-5">
+          <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
+            <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
+            <span>{icon.nombre}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    //Obtengo el elemento dentro del que se generan los items
+    const track = document.getElementById("slideTrack");
+    if (!track) return;
+
+    //Obtengon un arreglo de los items totales (se espera que sean el doble de los originales)
+    const slides = track.querySelectorAll(".slide");
+    //Tomo el ancho del primer item de la lista (todos deberian tener el mismo ancho)
+    const slideWidth = (slides[0] as HTMLElement)?.offsetWidth || 200;
+    //Tomo la cantidad real de items que ve el usuario
+    const totalSlides = slides.length / 2;
+
+    // Aplicar la animación con el tiempo deseado al carrusel
+    track.style.animation = `scroll 20s linear infinite`;
+
+    // Crear keyframe dinámico
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${slideWidth * totalSlides}px); }
+      }
+    `;
+    //Agrega el kreyframe al css para que se aplique al carrusel
+    document.head.appendChild(style);
+  });
+</script>
