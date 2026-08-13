@@ -3,9 +3,14 @@
 body {
   background-color: rgb(0, 14, 14);
   /*font-family: 'Reddit Sans Variable', sans-serif;*/
-  font-family: "Reddit Sans Variable", sans-serif;
-  
-  background-image: radial-gradient(circle, rgb(4, 23, 23) 1px, transparent 1px);
+  /* font-family: "Reddit Sans Variable", sans-serif; */
+  font-family: var(--droid-sans-m-nerd-font-mono), sans-serif;
+
+  background-image: radial-gradient(
+    circle,
+    rgb(4, 23, 23) 1px,
+    transparent 1px
+  );
   background-size: 30px 30px;
 }
 
@@ -28,7 +33,6 @@ body {
 }
 
 .navigation li {
-  
   height: 100%;
 }
 
@@ -36,7 +40,7 @@ body {
   width: 100%;
   height: 100%;
   font-size: 20px;
-  
+
   transition: all 0.3s ease;
 }
 
@@ -60,16 +64,169 @@ h1 {
   padding: 15px 0px;
 }
 
-h3, h4 {
+h3,
+h4 {
   color: rgb(34, 154, 136);
 }
 
-p { 
+p {
   color: rgb(255, 255, 255);
+}
+
+.parrafo {
+  padding-top: 20px;
 }
 
 strong {
   color: rgb(34, 154, 136);
+}
+
+/*----------------------------------------*/
+/*-IMAGEN---------------------------------*/
+/*----------------------------------------*/
+
+.imagen {
+  width: 40%; /* O el porcentaje/unidad que desees */
+  aspect-ratio: 1 / 1; /* Fuerza a que el alto sea igual al ancho */
+  object-fit: cover; /* Evita que la imagen se estire o se deforme */
+
+  border: 1.5px groove rgba(24, 154, 136, 0.5);
+  box-shadow: 0 50px 300px rgba(24, 154, 136, 0.5);
+}
+
+@media (max-width: 1524px) {
+  .imagen {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1024px) {
+  .imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+/*----------------------------------------*/
+/*-CONSOLA--------------------------------*/
+/*----------------------------------------*/
+.consola {
+  background-color: rgb(0, 0, 0);
+  font-weight: bold;
+  box-shadow:
+    0.2px 0.2px 0px 0px rgb(34, 154, 136),
+    0px 0px 0.2px 0.3px rgb(34, 154, 136);
+}
+
+.consola-w {
+  border-left: 1px solid rgba(34, 154, 136, 0.5);
+}
+
+.comando {
+  color: rgb(77, 154, 85);
+}
+.comando p {
+  color: rgb(77, 154, 85);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+
+  width: 0;
+  border-right: 3px solid white;
+
+  animation:
+    typing 1.5s steps(6) forwards,
+    blink 0.5s step-end infinite alternate,
+    hide-cursor 0s forwards 1.5s;
+}
+
+.respuesta {
+  color: rgb(165, 169, 171);
+  opacity: 0;
+  animation: aparecer 0.5s ease forwards;
+}
+
+.respuesta:nth-child(2) {
+  animation-delay: 1.7s;
+}
+
+.respuesta:nth-child(3) {
+  animation-delay: 2.2s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 7ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes hide-cursor {
+  to {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*----------------------------------------*/
+/*-BOTON-----------------------------*/
+/*----------------------------------------*/
+.btn-default {
+  border: 1px solid rgb(34, 154, 136);
+  transition: all 0.3s ease;
+}
+.btn-default:hover {
+  cursor: pointer;
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+}
+
+.btn-lleno {
+  background-color: rgb(34, 154, 136);
+  color: rgb(255, 255, 255);
+}
+
+.btn-vacio {
+  color: rgb(34, 154, 136);
+}
+
+/*----------------------------------------*/
+/*-CARRUSEL-------------------------------*/
+/*----------------------------------------*/
+.slider {
+  color: white;
+  margin: auto;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slide {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.slide-contenido {
+  border: 1px solid rgba(34, 154, 136, 0.5);
 }
 
 /*----------------------------------------*/

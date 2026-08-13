@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -7,5 +7,22 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
+  },
+  fonts: [{
+    provider: fontProviders.local(),
+    name: "DroidSansMNerdFontMono-Regular",
+    cssVariable: "--droid-sans-m-nerd-font-mono",
+    options: {
+      variants: [{
+        src: ['./src/assets/fonts/DroidSansMNerdFontMono-Regular.otf'],
+        weight: 'normal',
+        style: 'normal'
+      }]
+    }
+  }],
+    experimental: {
+    svgOptimizer: svgoOptimizer()
   }
+
+
 });

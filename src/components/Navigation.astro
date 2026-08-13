@@ -12,12 +12,12 @@ const navItems = [
 ];
 ---
 
-<section class="navigation w-full flex flex-row">
-  <div class="w-3/6 px-15 flex items-center max-lg:w-2/6">
+<section class="navigation w-full flex flex-row fixed">
+  <div class="w-3/6 px-15 flex items-center max-lg:w-2/6 max-lg:px-5">
     <Image class="logo" src={Logo} alt="Logo" />
   </div>
 
-  <div class="w-2/6 flex justify-between max-lg:w-3/6">
+  <div class="w-2/6 flex justify-between max-lg:w-3/6 block max-sm:hidden">
     <nav class="w-full h-full flex items-center justify-between">
       <ul class="flex w-full justify-around items-center h-full">
         {
@@ -38,7 +38,7 @@ const navItems = [
     </nav>
   </div>
 
-  <div class="w-1/6 px-15 flex justify-end items-center max-lg:w-1/6">
+  <div class="w-1/6 px-15 flex justify-end items-center max-lg:w-4/6 max-lg:px-5">
     <button class="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
