@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import roger from "../assets/images/roger.png";
 
 const icons = Object.entries(
-  import.meta.glob("../assets/svg/*.svg", {
+  import.meta.glob("../assets/svg/frameworks/*.svg", {
     eager: true,
     import: "default",
   }),
@@ -33,7 +33,7 @@ import Button from "../components/Button.astro";
       max-lg:text-1xl">Hola, soy</h4>
       <h1
         class="nombre font-bold text-6xl
-      max-lg:text-4xl 
+      max-lg:text-4xl
       max-sm:text-wrap"
       >
         Roger Barahona
@@ -224,10 +224,10 @@ import Button from "../components/Button.astro";
     </div>
   </article>
 </section>
+<!-- 
+<h4 class="pt-5">Tecnologías principales:</h4>
 
-<!-- <h4 class="pt-5">Tecnologías principales:</h4>
-
-<div class="slider" id="slider">
+<div class="slider w-2/3!" id="slider">
   <div class="flex" id="slideTrack">
     {
       [...icons, ...icons].map((icon) => (
@@ -240,7 +240,7 @@ import Button from "../components/Button.astro";
       ))
     }
   </div>
-</div> -->
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -270,3 +270,4 @@ import Button from "../components/Button.astro";
     document.head.appendChild(style);
   });
 </script>
+ -->

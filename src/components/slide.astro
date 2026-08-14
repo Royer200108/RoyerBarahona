@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+
+const { title, svgArray } = Astro.props;
+---
+
+<section class="flex flex-col">
+  <h4 class="pt-5">{title}</h4>
+
+  <div class="slider" id={title}>
+    <div class="flex">
+      {
+        [...svgArray, ...svgArray].map((icon) => (
+          <div class="slide flex justify-center items-center gap-5">
+            <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
+              <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
+              <span>{icon.nombre}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

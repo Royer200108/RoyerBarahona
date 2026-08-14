@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+
+import Slide from "../components/slide.astro";
+
+
+const icons = Object.entries(
+  import.meta.glob("../assets/svg/frameworks/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+
+const frameworks = Object.entries(
+  import.meta.glob("../assets/svg/frameworks/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+
+const devops = Object.entries(
+  import.meta.glob("../assets/svg/devops/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+---
+
+<section
+  id="habilities"
+  class="w-full px-50 flex flex-col justify-between pt-30
+  max-2xl:px-5
+  max-lg:flex-col max-lg:items-center max-lg:px-5"
+>
+  <div>
+    <h3 class="sub-titulo text-2xl font-bold mb-2">
+      <span class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="rgb(34, 154, 136)"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-circle"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z"
+          ></path>
+        </svg>
+
+        &nbspHabilidades
+      </span>
+    </h3>
+  </div>
+
+  <h4 class="pt-5">Tecnologías principales:</h4>
+
+  <div class="slider w-1/3!" id="slider">
+    <div class="flex" id="slideTrack">
+      {
+        [...devops, ...devops].map((icon) => (
+          <div class="slide flex justify-center items-center gap-5">
+            <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
+              <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
+              <span>{icon.nombre}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    //Obtengo el elemento dentro del que se generan los items
+    const track = document.getElementById("slideTrack");
+    if (!track) return;
+
+    //Obtengon un arreglo de los items totales (se espera que sean el doble de los originales)
+    const slides = track.querySelectorAll(".slide");
+    //Tomo el ancho del primer item de la lista (todos deberian tener el mismo ancho)
+    const slideWidth = (slides[0] as HTMLElement)?.offsetWidth || 200;
+    //Tomo la cantidad real de items que ve el usuario
+    const totalSlides = slides.length / 2;
+
+    // Aplicar la animación con el tiempo deseado al carrusel
+    track.style.animation = `scroll 20s linear infinite`;
+
+    // Crear keyframe dinámico
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${slideWidth * totalSlides}px); }
+      }
+    `;
+    //Agrega el kreyframe al css para que se aplique al carrusel
+    document.head.appendChild(style);
+  });
+</script>
