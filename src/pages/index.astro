@@ -2,6 +2,9 @@
 import "../styles/global.css";
 
 import AboutMe from "../components/AboutMe.astro";
+import Habilities from "../components/Habilities.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -10,7 +13,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout pageTitle="Roger Barahona">
   
-  <AboutMe />
+  <AboutMe id="about-me"/>
+
+  <Habilities id="habilities" />
+
+  <Projects id="projects" />
+
+  <Contact id="contact" />
 
 </BaseLayout>
 
