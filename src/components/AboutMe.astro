@@ -32,7 +32,7 @@ import Button from "../components/Button.astro";
       <h4 class="text-1xl font-bold
       max-lg:text-1xl">Hola, soy</h4>
       <h1
-        class="nombre font-bold text-6xl
+        class="texto-animado nombre font-bold text-6xl
       max-lg:text-4xl
       max-sm:text-wrap"
       >
@@ -224,50 +224,3 @@ import Button from "../components/Button.astro";
     </div>
   </article>
 </section>
-<!-- 
-<h4 class="pt-5">Tecnologías principales:</h4>
-
-<div class="slider w-2/3!" id="slider">
-  <div class="flex" id="slideTrack">
-    {
-      [...icons, ...icons].map((icon) => (
-        <div class="slide flex justify-center items-center gap-5">
-          <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
-            <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
-            <span>{icon.nombre}</span>
-          </div>
-        </div>
-      ))
-    }
-  </div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    //Obtengo el elemento dentro del que se generan los items
-    const track = document.getElementById("slideTrack");
-    if (!track) return;
-
-    //Obtengon un arreglo de los items totales (se espera que sean el doble de los originales)
-    const slides = track.querySelectorAll(".slide");
-    //Tomo el ancho del primer item de la lista (todos deberian tener el mismo ancho)
-    const slideWidth = (slides[0] as HTMLElement)?.offsetWidth || 200;
-    //Tomo la cantidad real de items que ve el usuario
-    const totalSlides = slides.length / 2;
-
-    // Aplicar la animación con el tiempo deseado al carrusel
-    track.style.animation = `scroll 20s linear infinite`;
-
-    // Crear keyframe dinámico
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-${slideWidth * totalSlides}px); }
-      }
-    `;
-    //Agrega el kreyframe al css para que se aplique al carrusel
-    document.head.appendChild(style);
-  });
-</script>
- -->

@@ -78,21 +78,23 @@ const sections = [
     </h3>
   </div>
 
-  <div class="w-full flex
+  <div class=" w-full flex
   max-lg:flex-col
   ">
-    <article class="flex flex-col w-1/2 gap-10
+    <article class="habilidades-activa flex-col w-1/2 h-150 gap-2
     max-lg:w-full mx-lg:mb-10 max-lg:order-2
-    ">
+    "
+    id="hard-skills-article"
+    >
       {
         sections.map((section) => (
-          <h4 class="pt-5 text-1xl font-bold">{section.title}: </h4>
+          <h4 class="pb-2 text-1xl font-bold">{section.title}: </h4>
 
           <div class="slider w-full">
             <div class="flex" id={section.section}>
               {
                 [...section.icons, ...section.icons].map((icon) => (
-                  <div class="slide flex justify-center items-center gap-5">
+                  <div class="slide flex justify-center items-center gap-2">
                     <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
                       <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
                       <span>{icon.nombre}</span>
@@ -107,19 +109,54 @@ const sections = [
 
     </article>
 
-    <article class="flex flex-col w-1/2 gap-10
+     <article class="habilidades-inactiva flex-col w-1/2 h-170 gap-10
+    max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    "
+    id="soft-skills-article"
+    >
+      habilidades blandas
+
+    </article>
+
+    <article class="flex flex-col w-1/2 h-150 gap-10 items-center justify-center
     max-lg:w-full mx-lg:mb-10 max-lg:order-1
     ">
-    <div class="text-white">Este es un toggle</div>
 
-    <div class="wrap-toggle w-full flex items-center justify-center">
+    <div class="wrap-toggle w-full h-50 flex items-center justify-center">
       <input type="checkbox" id="toggle" class="offscreen">
-      <label for="toggle" class="switch flex justify-between items-center px-5">
-        <span>Hard Skills</span>
-        <span>Soft Skills</span>
+      <label for="toggle" class="switch flex justify-between items-center px-5 rounded-xl">
+        <span class="text-[#fff] font-bold">Soft Skills</span>
+        <span class="text-[#229a88] font-bold">Hard Skills</span>
       </label>
     </div>
 
+    <div class="w-full h-100 px-15 texto-activo" id="hard-skills">
+      <h1
+        class="texto-animado habilidades font-bold text-4xl
+      max-lg:text-4xl
+      max-sm:text-wrap"
+      >
+        Hard Skills
+      </h1>
+
+      <p class="parrafo parrafo-habilidades text-1xl">
+        Mi experiencia se ha orientado más al desarrollo de <strong>Aplicaciones Web</strong> que incluyen despliegues en la nube con entregas continuas, sin embargo también he realizado proyectos de <strong>Escritorio</strong> y <strong>Móviles</strong>.
+      </p>
+    </div>
+    
+    <div class="w-full h-100 px-15 texto-inactivo" id="soft-skills">
+      <h1
+        class="texto-animado habilidades font-bold text-4xl
+      max-lg:text-4xl
+      max-sm:text-wrap"
+      >
+        Soft Skills
+      </h1>
+
+      <p class="parrafo parrafo-habilidades text-1xl">
+        También poseo habilidades blandas que me permiten trabajar de <strong>manera efectiva</strong> en equipo, relativa <strong>facilidad de comunicación</strong> y <strong>adaptabilidad</strong> en los entornos de trabajo. Esto me permite colaborar de forma efectiva en <strong>Equipos</strong> y contribuir al <strong>Éxito</strong> de los proyectos.
+      </p>
+    </div>
 
     </article>
   </div>
@@ -161,5 +198,51 @@ const sections = [
     document.head.appendChild(style);
     contador++;
     })
+
+    const checkbox = document.getElementById('toggle');
+    if(!checkbox) return;
+    const hardSkillsDiv = document.getElementById('hard-skills');
+    if(!hardSkillsDiv) return;
+    const softSkillsDiv = document.getElementById('soft-skills');
+    if(!softSkillsDiv) return;
+
+    const hardSkillsArticle = document.getElementById('hard-skills-article');
+    if(!hardSkillsArticle) return;
+    const softSkillsArticle = document.getElementById('soft-skills-article');
+    if(!softSkillsArticle) return;
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        softSkillsDiv.classList.add('texto-activo');
+        softSkillsDiv.classList.remove('texto-inactivo');
+
+        hardSkillsDiv.classList.remove('texto-activo');
+        hardSkillsDiv.classList.add('texto-inactivo');
+
+        softSkillsArticle.classList.add('habilidades-activa');
+        softSkillsArticle.classList.remove('habilidades-inactiva');
+
+        hardSkillsArticle.classList.remove('habilidades-activa');
+        hardSkillsArticle.classList.add('habilidades-inactiva');
+      } else {
+        hardSkillsDiv.classList.add('texto-activo');
+        hardSkillsDiv.classList.remove('texto-inactivo');
+
+        softSkillsDiv.classList.remove('texto-activo');
+        softSkillsDiv.classList.add('texto-inactivo');
+
+        hardSkillsArticle.classList.add('habilidades-activa');
+        hardSkillsArticle.classList.remove('habilidades-inactiva');
+
+        softSkillsArticle.classList.remove('habilidades-activa');
+        softSkillsArticle.classList.add('habilidades-inactiva');
+      }
+
+    });
   });
+
+
+  
+
+  
 </script>

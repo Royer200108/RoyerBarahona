@@ -89,14 +89,16 @@ strong {
   color: rgb(34, 154, 136);
 }
 
-.nombre {
+.texto-animado {
   display: block;
   white-space: nowrap;
   overflow: hidden;
 
   width: 0;
   border-right: 3px solid white;
+}
 
+.nombre {
   animation:
     typing-name 3s steps(15) forwards,
     blink-name 0.6s step-end infinite alternate;
@@ -285,11 +287,59 @@ strong {
 }
 
 /*----------------------------------------*/
+/*-HABILIDADES----------------------------*/
+/*----------------------------------------*/
+.habilidades {
+  animation:
+    soft-skills 1.5s steps(12) forwards,
+    blink-name 0.6s step-end infinite alternate;
+}
+
+.parrafo-habilidades {
+  animation: aparecer 1s ease forwards;
+}
+
+.texto-activo {
+  display: block;
+}
+.texto-inactivo {
+  display: none;
+}
+
+.habilidades-activa {
+  display: flex;
+}
+
+.habilidades-inactiva {
+  display: none;
+}
+
+@keyframes soft-skills {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 12ch;
+  }
+}
+
+@keyframes hard-skills {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 12ch;
+  }
+}
+
+/*----------------------------------------*/
 /*-CARRUSEL-------------------------------*/
 /*----------------------------------------*/
 .slider {
   color: white;
-  margin: auto;
+  padding-bottom:15px;
   overflow: hidden;
   width: 100%;
 }
@@ -320,10 +370,9 @@ strong {
   position: relative;
   
   width: 310px;  
-  height: 40px;
+  height: 50px;
 
   background-color: rgb(255, 255, 255);
-  border-radius: 40px;
   cursor: pointer;
 }
 
@@ -331,13 +380,13 @@ strong {
   content: '';
   position: absolute;
   width: 150px;
-  height: 30px;
+  height: 40px;
   border-radius: 30px;
 
   background-color: rgb(34, 154, 136);
   left: 5px;
   top: 5px;
-  
+  border-radius: 0.75rem;
   transition: all 0.4s ease;
 }
 
