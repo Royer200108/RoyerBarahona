@@ -1,18 +1,6 @@
 ---
 import { Image } from "astro:assets";
 
-import Slide from "../components/slide.astro";
-
-
-const icons = Object.entries(
-  import.meta.glob("../assets/svg/frameworks/*.svg", {
-    eager: true,
-    import: "default",
-  }),
-).map(([path, src]) => ({
-  nombre: path.split("/").pop()?.replace(".svg", "") || "",
-  src: src as string,
-}));
 
 const frameworks = Object.entries(
   import.meta.glob("../assets/svg/frameworks/*.svg", {
@@ -33,13 +21,40 @@ const devops = Object.entries(
   nombre: path.split("/").pop()?.replace(".svg", "") || "",
   src: src as string,
 }));
+
+const databases = Object.entries(
+  import.meta.glob("../assets/svg/databases/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+
+const languajes = Object.entries(
+  import.meta.glob("../assets/svg/languajes/*.svg", {
+    eager: true,
+    import: "default",
+  }),
+).map(([path, src]) => ({
+  nombre: path.split("/").pop()?.replace(".svg", "") || "",
+  src: src as string,
+}));
+
+const sections = [
+  {section: "frameworks", title:"Frameworks", icons:frameworks},
+  {section: "devops", title:"DevOps y Cloud", icons:devops},
+  {section: "languajes", title:"Lenguajes de Programación", icons:languajes},
+  {section: "databases", title:"Bases de Datos", icons:databases},
+  ]
 ---
 
 <section
   id="habilities"
-  class="w-full px-50 flex flex-col justify-between pt-30
+  class="w-full px-50 flex flex-col justify-between pt-20
   max-2xl:px-5
-  max-lg:flex-col max-lg:items-center max-lg:px-5"
+  max-lg:flex-col max-lg:px-5"
 >
   <div>
     <h3 class="sub-titulo text-2xl font-bold mb-2">
@@ -63,49 +78,88 @@ const devops = Object.entries(
     </h3>
   </div>
 
-  <h4 class="pt-5">Tecnologías principales:</h4>
-
-  <div class="slider w-1/3!" id="slider">
-    <div class="flex" id="slideTrack">
+  <div class="w-full flex
+  max-lg:flex-col
+  ">
+    <article class="flex flex-col w-1/2 gap-10
+    max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    ">
       {
-        [...devops, ...devops].map((icon) => (
-          <div class="slide flex justify-center items-center gap-5">
-            <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
-              <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
-              <span>{icon.nombre}</span>
+        sections.map((section) => (
+          <h4 class="pt-5 text-1xl font-bold">{section.title}: </h4>
+
+          <div class="slider w-full">
+            <div class="flex" id={section.section}>
+              {
+                [...section.icons, ...section.icons].map((icon) => (
+                  <div class="slide flex justify-center items-center gap-5">
+                    <div class="slide-contenido items-center h-full flex gap-2 py-2 px-4 rounded-xl">
+                      <Image src={icon.src} alt={icon.nombre} width={29} height={31} />
+                      <span>{icon.nombre}</span>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
           </div>
         ))
       }
+
+    </article>
+
+    <article class="flex flex-col w-1/2 gap-10
+    max-lg:w-full mx-lg:mb-10 max-lg:order-1
+    ">
+    <div class="text-white">Este es un toggle</div>
+
+    <div class="wrap-toggle w-full flex items-center justify-center">
+      <input type="checkbox" id="toggle" class="offscreen">
+      <label for="toggle" class="switch flex justify-between items-center px-5">
+        <span>Hard Skills</span>
+        <span>Soft Skills</span>
+      </label>
     </div>
+
+
+    </article>
   </div>
+  
 </section>
 
-<script>
+<script define:vars={{sections}}>
+  let contador = 0;
+
   document.addEventListener("DOMContentLoaded", () => {
-    //Obtengo el elemento dentro del que se generan los items
-    const track = document.getElementById("slideTrack");
+    sections.forEach((section) => {
+      //Obtengo el elemento dentro del que se generan los items
+    const track = document.getElementById(section.section);
     if (!track) return;
 
     //Obtengon un arreglo de los items totales (se espera que sean el doble de los originales)
     const slides = track.querySelectorAll(".slide");
     //Tomo el ancho del primer item de la lista (todos deberian tener el mismo ancho)
-    const slideWidth = (slides[0] as HTMLElement)?.offsetWidth || 200;
+    const slideWidth = slides[0].offsetWidth || 200;
     //Tomo la cantidad real de items que ve el usuario
     const totalSlides = slides.length / 2;
 
     // Aplicar la animación con el tiempo deseado al carrusel
-    track.style.animation = `scroll 20s linear infinite`;
+    track.style.animation = `scroll-${section.section} ${section.icons.length * 3}s linear infinite`;
 
     // Crear keyframe dinámico
     const style = document.createElement("style");
     style.textContent = `
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-${slideWidth * totalSlides}px); }
+      @keyframes scroll-${section.section} {
+        ${contador%2 === 0 ?
+        `0% { transform: translateX(0); }
+        100% { transform: translateX(-${slideWidth * totalSlides}px); }}`
+        :
+        `0% { transform: translateX(-${slideWidth * totalSlides}px); }
+        100% { transform: translateX(0); }}`
       }
     `;
     //Agrega el kreyframe al css para que se aplique al carrusel
     document.head.appendChild(style);
+    contador++;
+    })
   });
 </script>
