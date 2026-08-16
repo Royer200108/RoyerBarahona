@@ -398,6 +398,24 @@ input[type="checkbox"]:checked + .switch::after{
 input[type="checkbox"]:checked + .switch{
   background-color: rgb(34, 154, 136);
 }
+/*
+@media(max-width: 500px){
+  .switch {
+    width: 100% !important;
+  }
+}
+*/
+/*----------------------------------------*/
+/*-SOFTCARD-------------------------------*/
+/*----------------------------------------*/
+.soft-card-container {
+  border: 1px solid rgb(34, 154, 136);
+}
+
+.soft-card {
+  border: 1px solid rgb(34, 154, 136);
+  background: rgba(34, 154, 136, 0.1);
+}
 
 /*----------------------------------------*/
 /*-FOOTER-----------------------------*/

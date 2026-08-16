@@ -48,6 +48,18 @@ const sections = [
   {section: "languajes", title:"Lenguajes de Programación", icons:languajes},
   {section: "databases", title:"Bases de Datos", icons:databases},
   ]
+
+import Bolt from "../assets/svg/softskills/bolt.svg";
+import Book from "../assets/svg/softskills/book.svg";
+import Ear from "../assets/svg/softskills/ear.svg";
+import Thinking from "../assets/svg/softskills/thinking-high.svg";
+
+const softSkills = [
+  {icon: Bolt, title: "Resolución de Problemas", description: "Me gusta enfrentar desafíos y encontrar soluciones eficientes y creativas."},
+  {icon: Ear, title: "Resolución de Problemas", description: "Soy capaz de identificar y resolver problemas de forma efectiva."},
+  {icon: Book, title: "Autodidacta", description: "Soy alguien a quien le gusta aprender, siempre dispuesto a adquirir nuevos conocimientos."},
+  {icon: Thinking, title: "Liderazgo", description: "Me esfuerzo por guiar con empatía y visión, empoderando a los demás para que alcancen sus metas."},
+]
 ---
 
 <section
@@ -81,8 +93,9 @@ const sections = [
   <div class=" w-full flex
   max-lg:flex-col
   ">
-    <article class="habilidades-activa flex-col w-1/2 h-150 gap-2
+    <article class="habilidades-activa flex-col w-1/2 h-110 gap-2
     max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    max-sm:h-auto
     "
     id="hard-skills-article"
     >
@@ -109,28 +122,72 @@ const sections = [
 
     </article>
 
-     <article class="habilidades-inactiva flex-col w-1/2 h-170 gap-10
-    max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    <article class="habilidades-inactiva w-1/2 h-110 items-center
+    
+    max-lg:w-full mx-lg:mb-10 max-lg:order-2 max-lg:h-150
+    
     "
     id="soft-skills-article"
     >
-      habilidades blandas
+    
+      <div class="flex h-2/3 flex-wrap items-center
+      max-xl:flex-nowrap max-xl:flex-col max-xl:gap-2
+      max-lg:w-full max-lg:h-full max-lg:gap-2 max-lg:flex-col max-lg:flex-nowrap
+      max-sm:gap-10 max-sm:h-auto
+      ">
+        
+        {
+          softSkills.map((softskill) => (
+            <div class="w-1/2 px-2
+            max-xl:w-full
+            max-sm:p-0
+            ">
+              <div class="soft-card-container flex items-center p-3 rounded-xl h-35
+              max-sm:p-0 max-sm:h-auto
+              ">
+                <div class="w-1/3 flex
+                max-xl:items-center max-xl:justify-center
+                ">
+                  <span class="soft-card rounded-full w-20 h-20 flex items-center justify-center">
+                    <softskill.icon class="text-white w-10 h-10" />
+                  </span>
+                </div>
+                <div class="w-2/3">
+                  <span class="">
+                    <h3 class="font-bold mb-2">{ softskill.title }</h3> 
+                  </span>
+                  <span>
+                    <p class="text-sm">
+                      { softskill.description }
+                    </p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+        
+      </div>
 
     </article>
 
-    <article class="flex flex-col w-1/2 h-150 gap-10 items-center justify-center
+    <article class="flex flex-col w-1/2 h-110 gap-5 items-center justify-center
     max-lg:w-full mx-lg:mb-10 max-lg:order-1
     ">
 
     <div class="wrap-toggle w-full h-50 flex items-center justify-center">
       <input type="checkbox" id="toggle" class="offscreen">
-      <label for="toggle" class="switch flex justify-between items-center px-5 rounded-xl">
-        <span class="text-[#fff] font-bold">Soft Skills</span>
+      <label for="toggle" class="switch flex justify-between items-center px-5 rounded-xl
+      max-sm:w-full max-sm:px-0
+      ">
+        <span class="text-white font-bold">Soft Skills</span>
         <span class="text-[#229a88] font-bold">Hard Skills</span>
       </label>
     </div>
 
-    <div class="w-full h-100 px-15 texto-activo" id="hard-skills">
+    <div class="w-full h-100 px-15 texto-activo
+    max-lg:px-0
+    " id="hard-skills">
       <h1
         class="texto-animado habilidades font-bold text-4xl
       max-lg:text-4xl
@@ -144,7 +201,10 @@ const sections = [
       </p>
     </div>
     
-    <div class="w-full h-100 px-15 texto-inactivo" id="soft-skills">
+    <div class="w-full h-100 px-15 texto-inactivo
+    max-lg:px-0
+    max-sm:h-150
+    " id="soft-skills">
       <h1
         class="texto-animado habilidades font-bold text-4xl
       max-lg:text-4xl
@@ -154,7 +214,7 @@ const sections = [
       </h1>
 
       <p class="parrafo parrafo-habilidades text-1xl">
-        También poseo habilidades blandas que me permiten trabajar de <strong>manera efectiva</strong> en equipo, relativa <strong>facilidad de comunicación</strong> y <strong>adaptabilidad</strong> en los entornos de trabajo. Esto me permite colaborar de forma efectiva en <strong>Equipos</strong> y contribuir al <strong>Éxito</strong> de los proyectos.
+        Me considero una persona <strong>Autodidacta</strong>.También poseo habilidades blandas que me permiten trabajar de <strong>manera efectiva</strong> en equipo, relativa <strong>facilidad de comunicación</strong> y <strong>adaptabilidad</strong> en los entornos de trabajo. Esto me permite colaborar de forma efectiva en <strong>Equipos</strong> y contribuir al <strong>Éxito</strong> de los proyectos.
       </p>
     </div>
 
