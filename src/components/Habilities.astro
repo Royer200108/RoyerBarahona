@@ -64,9 +64,9 @@ const softSkills = [
 
 <section
   id="habilities"
-  class="w-full px-50 flex flex-col justify-between pt-20
+  class="w-full h-screen px-50 flex flex-col justify-center pt-30 gap-30
   max-2xl:px-5
-  max-lg:flex-col max-lg:px-5"
+  max-lg:h-auto max-lg:flex-col max-lg:px-5"
 >
   <div>
     <h3 class="sub-titulo text-2xl font-bold mb-2">
@@ -88,6 +88,10 @@ const softSkills = [
         &nbspHabilidades
       </span>
     </h3>
+
+    <p class="parrafo text-1xl">
+        Aquí podrá encontrar un pequeño pero detallado resumen de mis habilidades más destacables.
+    </p>
   </div>
 
   <div class=" w-full flex
@@ -133,17 +137,17 @@ const softSkills = [
       <div class="flex h-2/3 flex-wrap items-center
       max-xl:flex-nowrap max-xl:flex-col max-xl:gap-2
       max-lg:w-full max-lg:h-full max-lg:gap-2 max-lg:flex-col max-lg:flex-nowrap
-      max-sm:gap-10 max-sm:h-auto
+      max-sm:mt-10 max-sm:gap-10 max-sm:h-auto
       ">
         
         {
           softSkills.map((softskill) => (
-            <div class="w-1/2 px-2
+            <div class="w-1/2 px-2 pb-5
             max-xl:w-full
             max-sm:p-0
             ">
               <div class="soft-card-container flex items-center p-3 rounded-xl h-35
-              max-sm:p-0 max-sm:h-auto
+              max-sm:p-1 max-sm:h-auto
               ">
                 <div class="w-1/3 flex
                 max-xl:items-center max-xl:justify-center
