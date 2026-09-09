@@ -1,10 +1,211 @@
 ---
+import { Image } from "astro:assets";
 
+import { getImageSrc } from "../utils/imageLoader"
+
+import Angular from '../assets/svg/Angular.svg';
+import React from '../assets/svg/frameworks/React.svg'
+import Tailwind from "../assets/svg/frameworks/Tail.svg";
+import TypeScript from '../assets/svg/languajes/TypeScript.svg';
+import Azure from '../assets/svg/devops/Azure.svg';
+import Supabase from '../assets/svg/databases/postgresql.svg'
+
+const experiences = [
+  {
+    title: "Analista y desarrollador frontend",
+    description:
+      "Trabajo en conjunto con un equipo de desarrolladores frontend para desarrollar interfaces de usuario intuitivas para las nuevas versiones de los sistemas administrativos de la UNAH (Universidad Nacional Autónoma de Honduras).",
+    date: "Febrero - Julio 2026",
+    technologies: [
+      {
+        title: "Angular",
+        href: "/assets/svg/frameworks/Angular.svg",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+    ],
+  },
+  {
+    title: "Ingeniero y analista full stack",
+    description:
+      "Colaboración en conjunto con un grupo de estudiantes para desarrollar una aplicación móvil de rastreo de unidades de transporte para la UNAH (Universidad Nacional Autónoma de Honduras).",
+    date: "Septiembre - Diciembre 2025",
+    technologies: [
+      {
+        title: "React Native",
+        href: "",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+      {
+        title: "Supabase",
+        href: "/assets/svg/databases/Supabase.svg",
+      },
+      {
+        title: "Azure",
+        href: "/assets/svg/devops/Azure.svg",
+      },
+    ],
+  },
+  {
+    title: "Ingeniero y analista full stack",
+    description:
+      "Colaboración en conjunto con otros estudiantes para el desarrollo de un sistema de marcado de entradas y salidas del campus virtual de la UNAH  (Universidad Nacional Autónoma de Honduras).",
+    date: "Enero - Abril 2025",
+    technologies: [
+      {
+        title: "React Native",
+        href: "",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+      {
+        title: "Supabase",
+        href: "/assets/svg/databases/Supabase.svg",
+      },
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: "Sistema De Gestión De Posgrados UNAH",
+    description:
+      "Análisis, desarrollo e implementación de nuevas funcionalidades a la aplicación web utilizada por la UNAH para la gestión y verificación de requisitos solicitados en el proceso de admisiones de nuevos estudiantes a las carreras de posgrados ofertadas por la institución.",
+    date: "Junio - Julio 2026",
+    technologies: [
+      {
+        title: "Angular",
+        href: "/assets/svg/frameworks/Angular.svg",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+    ],
+  },
+  {
+    name: "Sistema De Gestión DIPP - V5",
+    description:
+      "Reconstrucción del sistema de gestión y registro estudiantil de la UNAH, actualizando su interfaz gráfica y optimizando su funcionamiento a nivel frontend en conjunto con unn equipo de desarrolladores frontend y backend.",
+    date: "Abril - Mayo 2026",
+    technologies: [
+      {
+        title: "Angular",
+        href: "/assets/svg/frameworks/Angular.svg",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+    ],
+  },
+  {
+    name: "Sistema De Gestión Graduandos - UNAH",
+    description:
+      "Reconstrucción del sistema de gestión de información para estudiantes graduandos de la UNAH.",
+    date: "Febrero - Abril 2026",
+    technologies: [
+      {
+        title: "Angular",
+        href: "/assets/svg/frameworks/Angular.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+    ],
+  },
+  {
+    name: "PumaBus",
+    description:
+      "Proyecto desarrollados con fines educativos, consistió en la creación de una aplicación móvil capaz de rastrear en tiempo real las uniades de transporte habilitadas por la UNAH dentro del programa de Transporte Gratuito Universitario. El objetivo principal fue la recolección y análisis de información que contribuyera a la mejora continua del servicio.",
+    date: "Septiembre - Diciembre 2025",
+    technologies: [
+      {
+        title: "React Native",
+        href: "",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+      {
+        title: "Supabase",
+        href: "/assets/svg/databases/Supabase.svg",
+      },
+      ,
+      {
+        title: "Azure",
+        href: "/assets/svg/devops/Azure.svg",
+      },
+    ],
+  },
+  {
+    name: "Sistema De Ingreso Con Reconocimiento Facial",
+    description:
+      "Consistió en el desarrollo de una plataforma web que podría ser utilizada por una organización para registrar las entradas y salidas de sus colaboradores y visitantes a sus instalaciones por medio de reconocimiento facial.",
+    date: "Enero - Abril 2025",
+    technologies: [
+      {
+        title: "React Native",
+        href: "",
+      },
+      {
+        title: "TailwindCss",
+        href: "/assets/svg/frameworks/Tailwind.svg",
+      },
+      {
+        title: "TypeScript",
+        href: "/assets/svg/languajes/TypeScrypt.svg",
+      },
+      {
+        title: "Supabase",
+        href: "/assets/svg/databases/Supabase.svg",
+      },
+      ,
+      {
+        title: "Azure",
+        href: "/assets/svg/devops/Azure.svg",
+      },
+    ],
+  },
+];
 ---
 
 <section
   id="projects"
-  class="w-full h-screen px-50 flex flex-col justify-center pt-30 gap-30
+  class="w-full h-screen px-50 flex flex-col pt-30 gap-30
   max-2xl:px-5
   max-lg:h-auto max-lg:flex-col max-lg:px-5"
 >
@@ -30,9 +231,73 @@
     </h3>
 
     <p class="parrafo text-1xl">
-      Aquí podrá encontrar listados algunos de los <strong>Proyectos</strong> más relevantes en
-      los que he tenido oportunidad de trabajar junto a una pequeña descripción
-      de las <strong>Tareas</strong> que desempeñé y las <strong>Tecnologías</strong> empleadas en los mismos.
+      Aquí podrá encontrar listados algunos de mi <strong>Experiencia</strong> y <strong
+        >Proyectos</strong
+      > más relevantes en los que he tenido oportunidad de desempeñarme junto a una
+      pequeña descripción de las <strong>Tareas</strong> realizadas y las <strong
+        >Tecnologías</strong
+      > empleadas en los mismos.
     </p>
+  </div>
+
+  <div class="w-full flex
+  max-lg:flex-col">
+    <article
+      class="w-1/2 items-center
+      max-lg:w-full mx-lg:mb-10 max-lg:order-2 max-lg:h-150"
+      id="soft-skills-article"
+    >
+      <div
+        class="flex flex-col items-center
+      max-xl:flex-nowrap max-xl:flex-col max-xl:gap-2
+      max-lg:w-full max-lg:h-full max-lg:gap-2 max-lg:flex-col max-lg:flex-nowrap
+      max-sm:mt-10 max-sm:gap-10 max-sm:h-auto"
+      >
+        {
+          experiences.map((experience) => (
+            <div
+              class="px-2 pb-5
+            max-xl:w-full
+            max-sm:p-0
+            "
+            >
+              <div
+                class="flex items-start p-3 rounded-xl
+              max-sm:p-1 max-sm:h-auto
+              "
+              >
+                <div
+                  class="w-1/3 flex
+                max-xl:items-center max-xl:justify-center
+                "
+                >
+                  <span class="date-span flex items-center justify-center">
+                    {experience.date}
+                  </span>
+                </div>
+
+                <div class="w-2/3">
+                  <div>
+                    <span class="">
+                      <h3 class="font-bold mb-2">{experience.title}</h3>
+                    </span>
+                    <span>
+                      <p class="text-sm">{experience.description}</p>
+                    </span>
+                  </div>
+                  <div class="w-full h-auto">
+                    {
+                      experience.technologies.map((technology) => (
+                        <Image src={technology.href} alt={technology.title} width={29} height={31} />
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </article>
   </div>
 </section>
