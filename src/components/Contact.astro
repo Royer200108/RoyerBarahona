@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 
+import Logo from "../assets/images/Logo.png";
 ---
 
 
@@ -32,4 +34,106 @@
   </div>
 
   
+  <div class=" w-full flex
+  max-lg:flex-col
+  ">
+    <article class="flex flex-col justify-center items-center w-1/2 h-110 gap-2
+    max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    max-sm:h-auto
+    "
+    id="hard-skills-article"
+    >
+
+      <Image src={Logo} alt={"Logo"} class="h-100 w-100" />
+
+      <div>
+        <h3 class="font-bold text-2xl
+        max-lg:text-2xl">
+        ¿Un proyecto en mente?
+      </h3>
+
+        <p class="parrafo text-1xl">
+          <strong>¡Contactame!</strong> puedes ponerte en contacto conmigo por medio de tu correo electrónico, solo debes rellenar el formulario contiguo.
+          <br>
+          <br>
+          También puedes seguir mis links de contacto ubicados en la parte inferior de este sitio...
+        </p>
+      </div>
+
+    </article>
+
+    <article class="flex flex-col w-1/2 h-110 gap-5 items-center justify-center
+    max-lg:w-full mx-lg:mb-10 max-lg:order-1
+    ">
+
+      <div class="w-2/3 h-full">
+        <h3 class="font-bold text-2xl
+          max-lg:text-2xl">
+          Formulario de contacto
+        </h3>
+
+        <div class="flex flex-col w-full gap-5 pt-5">
+          <div class="form-container">
+            <input 
+            type="text"
+            id="name"
+            autocomplete="off"
+            placeholder=" "
+            class="form-input"
+            >
+            <label id="name-label" for="name">Nombre</label>
+          </div>
+
+          <div class="form-container">
+            <input 
+            type="text"
+            id="email"
+            autocomplete="off"
+            placeholder=" "
+            class="form-input"
+            >
+            <label for="email">Correo</label>
+          </div>
+
+          <div class="form-container">
+            <textarea
+            id="description"
+            autocomplete="off"
+            placeholder=" "
+            class="form-input"
+            rows="5"
+            ></textarea>
+            
+            <label for="description">Mensaje</label>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const name = (document.getElementById("name") as HTMLInputElement);
+    const nameLabel = document.getElementById("name-label");
+
+    const result = document.getElementById("result");
+    var texto = "";
+
+      name?.addEventListener("keypress", () => {
+        console.log(name.value);
+        if (name.value !== "" || name.value !== null) {
+          name.classList.add('input-active');
+          nameLabel?.classList.add('label-active');
+        }
+        if (name.value === " " || name.value === null) {
+          name.classList.remove('input-active');
+          nameLabel?.classList.remove('label-active');
+        }
+      })
+  })
+
+  
+</script>
