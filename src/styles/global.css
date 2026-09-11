@@ -461,6 +461,7 @@ label {
 
 textarea {
   height: auto !important;
+  padding: 0.5em 1em 0 1em !important;
 }
 
 .form-input:hover {
@@ -493,7 +494,16 @@ textarea:focus ~ label,
   top:-0.5em;
   font-size: 0.75rem;
   */
-  padding-left: 1em !important;
+  padding: 0 1em 0 1em !important;
+  padding: 0 0.125em;
+  color: rgb(255, 255, 255);
+}
+.textarea-active{
+  /*
+  top:-0.5em;
+  font-size: 0.75rem;
+  */
+  padding: 0.5em 1em 0 1em !important;
   padding: 0 0.125em;
   color: rgb(255, 255, 255);
 }

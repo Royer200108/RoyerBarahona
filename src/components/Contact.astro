@@ -9,7 +9,7 @@ import Logo from "../assets/images/Logo.png";
   id="contact"
   class="w-full h-screen px-50 flex flex-col pt-30 gap-30
   max-2xl:px-5
-  max-lg:h-auto max-lg:flex-col max-lg:px-5"
+  max-lg:h-auto max-lg:flex-col max-lg:px-5 max-lg:gap-5"
 >
   <div>
     <h3 class="sub-titulo text-2xl font-bold mb-2">
@@ -38,13 +38,14 @@ import Logo from "../assets/images/Logo.png";
   max-lg:flex-col
   ">
     <article class="flex flex-col justify-center items-center w-1/2 h-110 gap-2
-    max-lg:w-full mx-lg:mb-10 max-lg:order-2
+    max-lg:w-full max-lg:mb-10 max-lg:h-auto
     max-sm:h-auto
     "
     id="hard-skills-article"
     >
 
-      <Image src={Logo} alt={"Logo"} class="h-100 w-100" />
+      <Image src={Logo} alt={"Logo"} class="h-100 w-100
+      max-lg:w-70 max-lg:h-70" />
 
       <div>
         <h3 class="font-bold text-2xl
@@ -63,10 +64,12 @@ import Logo from "../assets/images/Logo.png";
     </article>
 
     <article class="flex flex-col w-1/2 h-110 gap-5 items-center justify-center
-    max-lg:w-full mx-lg:mb-10 max-lg:order-1
+    max-lg:w-full mx-lg:mb-10 max-lg:h-auto
+    max-sm:h-auto
     ">
 
-      <div class="w-2/3 h-full">
+      <div class="w-2/3 h-full
+      max-xl:w-full">
         <h3 class="font-bold text-2xl
           max-lg:text-2xl">
           Formulario de contacto
@@ -92,7 +95,7 @@ import Logo from "../assets/images/Logo.png";
             placeholder=" "
             class="form-input"
             >
-            <label for="email">Correo</label>
+            <label id="email-label" for="email">Correo</label>
           </div>
 
           <div class="form-container">
@@ -104,7 +107,7 @@ import Logo from "../assets/images/Logo.png";
             rows="5"
             ></textarea>
             
-            <label for="description">Mensaje</label>
+            <label id="description-label" for="description">Mensaje</label>
           </div>
         </div>
       </div>
@@ -116,23 +119,53 @@ import Logo from "../assets/images/Logo.png";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    //Obtengo la etiqueta input html con el id de name
     const name = (document.getElementById("name") as HTMLInputElement);
+    //Obtengo la etiqueta label html que corresponde al input name
     const nameLabel = document.getElementById("name-label");
 
-    const result = document.getElementById("result");
-    var texto = "";
+    //Obtengo la etiqueta input html con el id de email
+    const email = (document.getElementById("email") as HTMLInputElement);
+    //Obtengo la etiqueta label html que corresponde al input email
+    const emailLabel = document.getElementById("email-label");
 
-      name?.addEventListener("keypress", () => {
-        console.log(name.value);
-        if (name.value !== "" || name.value !== null) {
-          name.classList.add('input-active');
-          nameLabel?.classList.add('label-active');
-        }
-        if (name.value === " " || name.value === null) {
-          name.classList.remove('input-active');
-          nameLabel?.classList.remove('label-active');
-        }
-      })
+    //Obtengo la etiqueta input html con el id de description
+    const description = (document.getElementById("description") as HTMLInputElement);
+    //Obtengo la etiqueta label html que corresponde al input description
+    const descriptionLabel = document.getElementById("description-label");
+
+    description?.addEventListener("input", (event) => {
+      if (description.value !== "" || description.value !== null) {
+        description.classList.add('textarea-active');
+        descriptionLabel?.classList.add('label-active');
+      }        
+      if (description.value === "" || description.value === null) {
+        description.classList.remove('textarea-active');
+        descriptionLabel?.classList.remove('label-active');
+      }
+    });
+
+    name?.addEventListener("input", (event) => {
+      if (name.value !== "" || name.value !== null) {
+        name.classList.add('input-active');
+        nameLabel?.classList.add('label-active');
+      }        
+      if (name.value === "" || name.value === null) {
+        name.classList.remove('input-active');
+        nameLabel?.classList.remove('label-active');
+      }
+    });
+
+    email?.addEventListener("input", (event) => {
+      if (email.value !== "" || email.value !== null) {
+        email.classList.add('input-active');
+        emailLabel?.classList.add('label-active');
+      }        
+      if (email.value === "" || email.value === null) {
+        email.classList.remove('input-active');
+        emailLabel?.classList.remove('label-active');
+      }
+    });
   })
 
   
