@@ -1,15 +1,6 @@
 ---
 import { Image } from "astro:assets";
 
-import { getImageSrc } from "../utils/imageLoader"
-
-import Angular from '../assets/svg/Angular.svg';
-import React from '../assets/svg/frameworks/React.svg'
-import Tailwind from "../assets/svg/frameworks/Tail.svg";
-import TypeScript from '../assets/svg/languajes/TypeScript.svg';
-import Azure from '../assets/svg/devops/Azure.svg';
-import Supabase from '../assets/svg/databases/postgresql.svg'
-
 const experiences = [
   {
     title: "Analista y desarrollador frontend",
@@ -19,15 +10,15 @@ const experiences = [
     technologies: [
       {
         title: "Angular",
-        href: "/assets/svg/frameworks/Angular.svg",
+        href: "svg/frameworks/Angular.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
     ],
   },
@@ -39,23 +30,23 @@ const experiences = [
     technologies: [
       {
         title: "React Native",
-        href: "",
+        href: "svg/frameworks/React.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
       {
         title: "Supabase",
-        href: "/assets/svg/databases/Supabase.svg",
+        href: "svg/databases/Supabase.svg",
       },
       {
         title: "Azure",
-        href: "/assets/svg/devops/Azure.svg",
+        href: "svg/devops/Azure.svg",
       },
     ],
   },
@@ -67,19 +58,19 @@ const experiences = [
     technologies: [
       {
         title: "React Native",
-        href: "",
+        href: "svg/frameworks/React.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
       {
         title: "Supabase",
-        href: "/assets/svg/databases/Supabase.svg",
+        href: "svg/databases/Supabase.svg",
       },
     ],
   },
@@ -94,15 +85,15 @@ const projects = [
     technologies: [
       {
         title: "Angular",
-        href: "/assets/svg/frameworks/Angular.svg",
+        href: "svg/frameworks/Angular.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
     ],
   },
@@ -114,15 +105,15 @@ const projects = [
     technologies: [
       {
         title: "Angular",
-        href: "/assets/svg/frameworks/Angular.svg",
+        href: "svg/frameworks/Angular.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
     ],
   },
@@ -134,11 +125,11 @@ const projects = [
     technologies: [
       {
         title: "Angular",
-        href: "/assets/svg/frameworks/Angular.svg",
+        href: "svg/frameworks/Angular.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
     ],
   },
@@ -150,24 +141,24 @@ const projects = [
     technologies: [
       {
         title: "React Native",
-        href: "",
+        href: "svg/frameworks/React.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
       {
         title: "Supabase",
-        href: "/assets/svg/databases/Supabase.svg",
+        href: "svg/databases/Supabase.svg",
       },
       ,
       {
         title: "Azure",
-        href: "/assets/svg/devops/Azure.svg",
+        href: "svg/devops/Azure.svg",
       },
     ],
   },
@@ -179,35 +170,37 @@ const projects = [
     technologies: [
       {
         title: "React Native",
-        href: "",
+        href: "svg/frameworks/React.svg",
       },
       {
         title: "TailwindCss",
-        href: "/assets/svg/frameworks/Tailwind.svg",
+        href: "svg/frameworks/Tailwind.svg",
       },
       {
         title: "TypeScript",
-        href: "/assets/svg/languajes/TypeScrypt.svg",
+        href: "svg/languajes/TypeScript.svg",
       },
       {
         title: "Supabase",
-        href: "/assets/svg/databases/Supabase.svg",
+        href: "svg/databases/Supabase.svg",
       },
       ,
       {
         title: "Azure",
-        href: "/assets/svg/devops/Azure.svg",
+        href: "svg/devops/Azure.svg",
       },
     ],
   },
 ];
+
+import { getImage } from "../utils/imageLoader";
 ---
 
 <section
   id="projects"
-  class="w-full h-screen px-50 flex flex-col pt-30 gap-30
+  class="w-full h-screen px-50 flex flex-col pt-30 gap-20
   max-2xl:px-5
-  max-lg:h-auto max-lg:flex-col max-lg:px-5"
+  max-lg:h-auto max-lg:flex-col max-lg:px-5 max-lg:gap-5"
 >
   <div>
     <h3 class="sub-titulo text-2xl font-bold mb-2">
@@ -254,7 +247,7 @@ const projects = [
       max-sm:mt-10 max-sm:gap-10 max-sm:h-auto"
       >
         {
-          experiences.map((experience) => (
+          experiences.slice(0,3).map((experience) => (
             <div
               class="px-2 pb-5
             max-xl:w-full
@@ -285,12 +278,83 @@ const projects = [
                       <p class="text-sm">{experience.description}</p>
                     </span>
                   </div>
-                  <div class="w-full h-auto">
+                  <div class="w-full h-auto flex gap-2 mt-2">
                     {
-                      //experience.technologies.map((technology) => (
-                      //  <Image src={technology.href} alt={technology.title} width={29} height={31} />
-                      //))
+                      experience.technologies.map((technology) => (
+                        //<Image src={technology.href} alt={technology.title} width={29} height={31} />
+                        <Image
+                          src={getImage(technology.href)}
+                          alt={technology.title}
+                          width={25}
+                          height={25}
+                        />
+                      ))
+                      //<Image src={getImage('svg/frameworks/Tailwind.svg')} alt="Logo" width={25} height={25}></Image>
                     }
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+
+    <article
+      class="w-1/2 items-center
+      max-lg:w-full mx-lg:mb-10 max-lg:order-2 max-lg:h-auto"
+      id="soft-skills-article"
+    >
+      <div
+        class="flex flex-col items-center
+        max-xl:flex-nowrap max-xl:flex-col max-xl:gap-2
+        max-lg:w-full max-lg:h-full max-lg:gap-2 max-lg:flex-col max-lg:flex-nowrap
+        max-sm:mt-10 max-sm:gap-10 max-sm:h-auto"
+      >
+        {
+          projects.slice(0,3).map((project) => (
+            <div
+              class="px-2 pb-5
+              max-xl:w-full
+              max-sm:p-0
+              "
+            >
+              <div
+                class="flex items-start p-3 rounded-xl
+                max-sm:p-1 max-sm:h-auto
+                "
+              >
+                <div
+                  class="w-1/3 flex
+                  max-xl:items-center max-xl:justify-center
+                  "
+                >
+                  <span class="date-span flex items-center justify-center">
+                    {project.date}
+                  </span>
+                </div>
+
+                <div class="w-2/3">
+                  <div>
+                    <span class="">
+                      <h3 class="font-bold mb-2">{project.name}</h3>
+                    </span>
+                    <span>
+                      <p class="text-sm">{project.description}</p>
+                    </span>
+                  </div>
+                  <div class="w-full h-auto flex gap-2 mt-2">
+                    {project.technologies?.map(
+                      (technology) =>
+                        technology && (
+                          <Image
+                            src={getImage(technology.href)}
+                            alt={technology.title}
+                            width={25}
+                            height={25}
+                          />
+                        ),
+                    )}
                   </div>
                 </div>
               </div>

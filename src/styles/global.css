@@ -26,6 +26,7 @@ body {
 }
 
 
+
 /*----------------------------------------*/
 /*-SCROLL---------------------------------*/
 /*----------------------------------------*/
@@ -377,6 +378,7 @@ strong {
 
 .switch {
   position: relative;
+  left: 0 !important;
   
   width: 310px;  
   height: 50px;
@@ -407,13 +409,27 @@ input[type="checkbox"]:checked + .switch::after{
 input[type="checkbox"]:checked + .switch{
   background-color: rgb(34, 154, 136);
 }
-/*
-@media(max-width: 500px){
+
+@media(max-width: 700px){
+  .wrap-toggle{
+    padding: 1rem;
+  }
+  
   .switch {
     width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  .switch::after {
+    width: 50%;
+  }
+
+  input[type="checkbox"]:checked + .switch::after{
+  transform: translateX(95%);
+  background-color: rgb(2, 70, 60);
   }
 }
-*/
+
 /*----------------------------------------*/
 /*-SOFTCARD-------------------------------*/
 /*----------------------------------------*/

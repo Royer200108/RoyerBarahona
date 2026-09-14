@@ -23,3 +23,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 </BaseLayout>
 
+
+
+<script>
+const sections = document.querySelectorAll<HTMLElement>('section[id]');
+
+const navLinks = document.querySelectorAll<HTMLElement>(
+  'li a'
+);
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      const sectionId = entry.target.id;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          'active',
+          link.dataset.code === sectionId
+        );
+      });
+    });
+  },
+  {
+    threshold: 0.5
+  }
+);
+
+sections.forEach((section) => {
+  observer.observe(section);
+});
+</script>

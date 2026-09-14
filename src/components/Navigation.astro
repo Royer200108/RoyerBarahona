@@ -5,14 +5,14 @@ import "../styles/global.css";
 import Logo from "../assets/images/Logo.png";
 
 const navItems = [
-  { code: "aboutMe", title: "Sobre Mí", href: "#about-me", active: true },
+  { code: "about-me", title: "Sobre Mí", href: "#about-me", active: true },
   { code: "habilities", title: "Habilidades", href: "#habilities", active: false },
   { code: "projects", title: "Proyectos", href: "#projects", active: false },
   { code: "contact", title: "Contacto", href: "#contact", active: false },
 ];
 ---
 
-<section class="navigation w-full flex flex-row fixed">
+<div class="navigation w-full flex flex-row fixed">
   <div class="w-3/6 px-15 flex items-center   
   max-xl:w-1/6
   max-2xl:w-1/6
@@ -70,7 +70,7 @@ const navItems = [
       </svg>
     </button>
   </div>
-</section>
+</div>
 
 <script>
   const nav = document.querySelector("nav");

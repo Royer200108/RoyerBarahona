@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
 
+import Button from "../components/Button.astro";
+
 import Logo from "../assets/images/Logo.png";
 ---
-
 
 <section
   id="contact"
@@ -33,140 +34,164 @@ import Logo from "../assets/images/Logo.png";
     </h3>
   </div>
 
-  
-  <div class=" w-full flex
-  max-lg:flex-col
-  ">
-    <article class="flex flex-col justify-center items-center w-1/2 h-110 gap-2
+  <div class="w-full flex
+  max-lg:flex-col">
+    <article
+      class="flex flex-col justify-center items-center w-1/2 h-110 gap-2
     max-lg:w-full max-lg:mb-10 max-lg:h-auto
-    max-sm:h-auto
-    "
-    id="hard-skills-article"
+    max-sm:h-auto"
+      id="hard-skills-article"
     >
-
-      <Image src={Logo} alt={"Logo"} class="h-100 w-100
-      max-lg:w-70 max-lg:h-70" />
+      <Image
+        src={Logo}
+        alt={"Logo"}
+        class="h-100 w-100
+      max-lg:w-70 max-lg:h-70"
+      />
 
       <div>
         <h3 class="font-bold text-2xl
         max-lg:text-2xl">
-        ¿Un proyecto en mente?
-      </h3>
+          ¿Un proyecto en mente?
+        </h3>
 
         <p class="parrafo text-1xl">
-          <strong>¡Contactame!</strong> puedes ponerte en contacto conmigo por medio de tu correo electrónico, solo debes rellenar el formulario contiguo.
-          <br>
-          <br>
-          También puedes seguir mis links de contacto ubicados en la parte inferior de este sitio...
+          <strong>¡Contactame!</strong> puedes ponerte en contacto conmigo por medio
+          de tu correo electrónico, solo debes rellenar el formulario contiguo.
+          <br />
+          <br />
+          También puedes seguir mis links de contacto ubicados en la parte inferior
+          de este sitio...
         </p>
       </div>
-
     </article>
 
-    <article class="flex flex-col w-1/2 h-110 gap-5 items-center justify-center
+    <article
+      class="flex flex-col w-1/2 h-110 gap-5 items-center justify-center
     max-lg:w-full mx-lg:mb-10 max-lg:h-auto
-    max-sm:h-auto
-    ">
-
-      <div class="w-2/3 h-full
+    max-sm:h-auto"
+    >
+      <div class="w-2/3 h-full flex flex-col items-end
       max-xl:w-full">
-        <h3 class="font-bold text-2xl
+        <h3 class="font-bold text-2xl w-full
           max-lg:text-2xl">
           Formulario de contacto
         </h3>
 
-        <div class="flex flex-col w-full gap-5 pt-5">
+        <div class="flex flex-col h-80 w-full gap-5 pt-5">
           <div class="form-container">
-            <input 
-            type="text"
-            id="name"
-            autocomplete="off"
-            placeholder=" "
-            class="form-input"
-            >
+            <input
+              type="text"
+              id="name"
+              autocomplete="off"
+              placeholder=" "
+              class="form-input"
+            />
             <label id="name-label" for="name">Nombre</label>
           </div>
 
           <div class="form-container">
-            <input 
-            type="text"
-            id="email"
-            autocomplete="off"
-            placeholder=" "
-            class="form-input"
-            >
+            <input
+              type="text"
+              id="email"
+              autocomplete="off"
+              placeholder=" "
+              class="form-input"
+            />
             <label id="email-label" for="email">Correo</label>
           </div>
 
           <div class="form-container">
             <textarea
-            id="description"
-            autocomplete="off"
-            placeholder=" "
-            class="form-input"
-            rows="5"
-            ></textarea>
-            
+              id="description"
+              autocomplete="off"
+              placeholder=" "
+              class="form-input"
+              rows="5"></textarea>
+
             <label id="description-label" for="description">Mensaje</label>
           </div>
         </div>
+
+        <Button className="btn-lleno" id="btn-contact">
+        <span class="flex items-center gap-2
+          max-lg:justify-center">
+          Enviar
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-send"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M10 14l11 -11"></path><path
+              d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"
+            ></path></svg
+          >
+        </span>
+      </Button>
       </div>
 
     </article>
   </div>
-
 </section>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     //Obtengo la etiqueta input html con el id de name
-    const name = (document.getElementById("name") as HTMLInputElement);
+    const name = document.getElementById("name") as HTMLInputElement;
     //Obtengo la etiqueta label html que corresponde al input name
     const nameLabel = document.getElementById("name-label");
 
     //Obtengo la etiqueta input html con el id de email
-    const email = (document.getElementById("email") as HTMLInputElement);
+    const email = document.getElementById("email") as HTMLInputElement;
     //Obtengo la etiqueta label html que corresponde al input email
     const emailLabel = document.getElementById("email-label");
 
     //Obtengo la etiqueta input html con el id de description
-    const description = (document.getElementById("description") as HTMLInputElement);
+    const description = document.getElementById(
+      "description",
+    ) as HTMLInputElement;
     //Obtengo la etiqueta label html que corresponde al input description
     const descriptionLabel = document.getElementById("description-label");
 
     description?.addEventListener("input", (event) => {
       if (description.value !== "" || description.value !== null) {
-        description.classList.add('textarea-active');
-        descriptionLabel?.classList.add('label-active');
-      }        
+        description.classList.add("textarea-active");
+        descriptionLabel?.classList.add("label-active");
+      }
       if (description.value === "" || description.value === null) {
-        description.classList.remove('textarea-active');
-        descriptionLabel?.classList.remove('label-active');
+        description.classList.remove("textarea-active");
+        descriptionLabel?.classList.remove("label-active");
       }
     });
 
     name?.addEventListener("input", (event) => {
       if (name.value !== "" || name.value !== null) {
-        name.classList.add('input-active');
-        nameLabel?.classList.add('label-active');
-      }        
+        name.classList.add("input-active");
+        nameLabel?.classList.add("label-active");
+      }
       if (name.value === "" || name.value === null) {
-        name.classList.remove('input-active');
-        nameLabel?.classList.remove('label-active');
+        name.classList.remove("input-active");
+        nameLabel?.classList.remove("label-active");
       }
     });
 
     email?.addEventListener("input", (event) => {
       if (email.value !== "" || email.value !== null) {
-        email.classList.add('input-active');
-        emailLabel?.classList.add('label-active');
-      }        
+        email.classList.add("input-active");
+        emailLabel?.classList.add("label-active");
+      }
       if (email.value === "" || email.value === null) {
-        email.classList.remove('input-active');
-        emailLabel?.classList.remove('label-active');
+        email.classList.remove("input-active");
+        emailLabel?.classList.remove("label-active");
       }
     });
-  })
-
-  
+  });
 </script>
