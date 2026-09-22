@@ -39,7 +39,9 @@ html {
 /*-NAVEGACION-----------------------------*/
 /*----------------------------------------*/
 .navigation {
+  background-color: rgb(0, 14, 14);
   box-shadow: 0 0.2px 0 0 rgb(34, 154, 136);
+  z-index: 500;
 }
 
 .navigation li {

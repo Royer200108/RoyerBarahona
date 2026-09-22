@@ -28,6 +28,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <script>
 const sections = document.querySelectorAll<HTMLElement>('section[id]');
 
+const liItems = document.querySelectorAll<HTMLElement>(
+  'ul li'
+);
+
 const navLinks = document.querySelectorAll<HTMLElement>(
   'li a'
 );
@@ -41,11 +45,25 @@ const observer = new IntersectionObserver(
 
       const sectionId = entry.target.id;
 
+      liItems.forEach((li) => {
+        li.classList.toggle(
+          'flex!',
+          li.dataset.code === sectionId
+        );
+      })
+
       navLinks.forEach((link) => {
+        {link && link.dataset.code === sectionId}
+        console.log(link.dataset.code);
         link.classList.toggle(
           'active',
           link.dataset.code === sectionId
         );
+        link.classList.toggle(
+          'flex!',
+          link.dataset.code === sectionId
+        );
+        
       });
     });
   },

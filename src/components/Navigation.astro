@@ -17,8 +17,8 @@ const navItems = [
   max-xl:w-1/6
   max-2xl:w-1/6
   max-md:w-1/6
-  max-lg:w-5/6 max-lg:px-5
-  max-sm:w-5/6">
+  max-lg:w-2/6 max-lg:px-5
+  max-sm:w-2/6">
     <Image class="logo" src={Logo} alt="Logo" />
   </div>
 
@@ -26,16 +26,15 @@ const navItems = [
   max-xl:w-4/6
   max-2xl:w-4/6
   max-md:w-4/6
-  max-lg:w-4/6
-  max-lg:hidden">
+  max-lg:w-4/6">
     <nav class="w-full h-full flex items-center justify-between">
       <ul class="flex w-full justify-around items-center h-full">
         {
           navItems.map((item) => (
-            <li>
+            <li class="max-lg:hidden max-lg:w-full" data-code={item.code}>
               <a
                 data-code={item.code}
-                class:list={{ active: item.active }}
+                class:list={[{ active: item.active }, "max-lg:hidden", "max-lg:w-full"]}
                 class="flex items-center justify-center text-white"
                 href={item.href}
               >
