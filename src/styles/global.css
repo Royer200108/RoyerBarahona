@@ -536,5 +536,10 @@ textarea:focus ~ label,
 /*-FOOTER-----------------------------*/
 /*----------------------------------------*/
 footer {
-  height: 117px;
+  background-color: rgb(0, 14, 14);
+  box-shadow: 0 0 0 0.2px rgb(34, 154, 136);
+}
+
+footer div {
+  height: 85px;
 }

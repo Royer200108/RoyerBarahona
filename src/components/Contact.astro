@@ -71,7 +71,7 @@ import Logo from "../assets/images/Logo.png";
     max-lg:w-full mx-lg:mb-10 max-lg:h-auto
     max-sm:h-auto"
     >
-      <div class="w-2/3 h-full flex flex-col items-end
+      <div id="contact-form" class="w-2/3 h-full flex flex-col items-end
       max-xl:w-full">
         <h3 class="font-bold text-2xl w-full
           max-lg:text-2xl">
@@ -93,12 +93,12 @@ import Logo from "../assets/images/Logo.png";
           <div class="form-container">
             <input
               type="text"
-              id="email"
+              id="subject"
               autocomplete="off"
               placeholder=" "
               class="form-input"
             />
-            <label id="email-label" for="email">Correo</label>
+            <label id="subject-label" for="subject">Asunto</label>
           </div>
 
           <div class="form-container">
@@ -150,9 +150,9 @@ import Logo from "../assets/images/Logo.png";
     const nameLabel = document.getElementById("name-label");
 
     //Obtengo la etiqueta input html con el id de email
-    const email = document.getElementById("email") as HTMLInputElement;
+    const subject = document.getElementById("subject") as HTMLInputElement;
     //Obtengo la etiqueta label html que corresponde al input email
-    const emailLabel = document.getElementById("email-label");
+    const subjectLabel = document.getElementById("subject-label");
 
     //Obtengo la etiqueta input html con el id de description
     const description = document.getElementById(
@@ -183,15 +183,30 @@ import Logo from "../assets/images/Logo.png";
       }
     });
 
-    email?.addEventListener("input", (event) => {
-      if (email.value !== "" || email.value !== null) {
-        email.classList.add("input-active");
-        emailLabel?.classList.add("label-active");
+    subject?.addEventListener("input", (event) => {
+      if (subject.value !== "" || subject.value !== null) {
+        subject.classList.add("input-active");
+        subjectLabel?.classList.add("label-active");
       }
-      if (email.value === "" || email.value === null) {
-        email.classList.remove("input-active");
-        emailLabel?.classList.remove("label-active");
+      if (subject.value === "" || subject.value === null) {
+        subject.classList.remove("input-active");
+        subjectLabel?.classList.remove("label-active");
       }
     });
+
+    const contactForm = document.getElementById('contact-form');
+
+    document.getElementById('btn-contact')?.addEventListener('click', () =>{
+      const destinatario = 'rogerdaneribarahona@gmail.com';
+      const asunto = encodeURIComponent(subject.value + " - " + name.value);
+      const cuerpo = encodeURIComponent(description.value);
+
+      // Abre el cliente de correo del usuario
+      window.location.href = `mailto:${destinatario}?subject=${asunto}&body=${cuerpo}`;
+    });
   });
+
+  
 </script>
+
+

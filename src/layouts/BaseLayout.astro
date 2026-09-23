@@ -18,14 +18,19 @@ const { pageTitle } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 
-    <Font cssVariable='--droid-sans-m-nerd-font-mono'/>
+    	<Font cssVariable='--droid-sans-m-nerd-font-mono'/>
 	</head>
+	
 	<body>
-    <Header/>
 
-    <slot />
+    	<Header/>
 
-    <Footer/>
+    	<slot />
+
 	</body>
+
+	<footer class="mt-10">
+		<Footer/>
+  	</footer>	
 </html>
 

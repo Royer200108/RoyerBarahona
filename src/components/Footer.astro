@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+
+import { getImage } from "../utils/imageLoader";
+
+const socialMediaLinks = [
+    {
+        name: "GitHub",
+        image: "svg/social/github.svg",
+        url: "https://github.com/royer200108"
+    },
+    {
+        name: "LinkedIn",
+        image: "svg/social/linkedin.svg",
+        url: "https://www.linkedin.com/in/roger-daneri-barahona-flores-40a5ab270/"
+    },
+    {
+        name: "Instagram",
+        image: "svg/social/instagram.svg",
+        url: "https://www.instagram.com/roy200108/"
+    },
+]
+
+---
+
+<div class="w-full h-full flex items-center gap-5 px-15 
+    max-lg:px-5 max-lg:gap-5"
+>
+    {
+        socialMediaLinks.map((link) => {
+            const image = getImage(link.image);
+            return (
+                <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 flex items-center justify-center
+                    max-lg:w-8 max-lg:h-8"
+                >
+                    <Image src={image} alt={link.name} width="40" height="40" color="white"/>
+                </a>
+            );
+        })
+    }
+</div>
